@@ -1,17 +1,40 @@
-var array = new Array(); 
-	array[0] = "Heidi";
-	array[1] = "Joe";
-	array[2] = "Kathrin";
-	array[3] = "Marco";
-	array[4] = "Lea";
-	array[5] = "John";
-	array[6] = "Peter";
-	array[7] = "Lisa";
-	array[8] = "Don";
-	array[9] = "Marta";
+(function () {
 
-console.log(array);
+var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
+for (var i = 0; i < names.length; i++) {
 
-for (var i = 0; i < array.length; i++) {
-	console.log("Hello " + array[i] + "!");
+
+(function(window) {
+var helloSpeaker = {};
+var speakWord = "Hello";
+helloSpeaker.speak = function(names) {
+  console.log(speakWord + " " + names);
+}
+
+window.helloSpeaker = helloSpeaker;
+
+})(window);
+
+(function(window) {
+var byeSpeaker = {};
+var speakWord = "Good Bye";
+byeSpeaker.speak = function(names) {
+  console.log(speakWord + " " + names);
+}
+
+window.byeSpeaker = byeSpeaker;
+
+})(window);
+
+var firstLetter = names[i].charAt(0).toLowerCase(); 
+if (firstLetter === "j") {
+	byeSpeaker.speak(names[i]);
+  } else {
+	helloSpeaker.speak(names[i]);	
+}
+
 };
+
+})();
+
+
